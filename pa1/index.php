@@ -160,22 +160,6 @@
     }
     ?>
 
-    <!-- Forms -->
-    <form method="post" action="">
-        <!-- View All Movies Button -->
-        <button class="btn btn-primary" type="submit" name="viewAllMovies">View All Movies</button>
-
-        <!-- View Users Button -->
-        <button class="btn btn-secondary" type="submit" name="viewUsers">View Users</button>
-
-        <!-- View All Actors Button -->
-        <button class="btn btn-success" type="submit" name="viewAllActors">View All Actors</button>
-
-        
-    <!-- Other view buttons -->
-        <button class="btn btn-secondary" type="submit" name="viewAllGuests">View All Guests</button>
-    </form>
-
 
     </div>
 </body>
