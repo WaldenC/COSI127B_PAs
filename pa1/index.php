@@ -28,6 +28,28 @@
             </div>
         </form>
     </div>
+
+    <!-- Forms -->
+    
+
+    <form method="post" action="">
+        <div class="row">
+            <div class="col text-center">
+                <!-- View All Movies Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewAllMovies">View All Movies</button>
+
+                <!-- View Users Button -->
+                <button class="btn btn-secondary mx-2" type="submit" name="viewUsers">View Users</button>
+
+                <!-- View All Actors Button -->
+                <button class="btn btn-success mx-2" type="submit" name="viewAllActors">View All Actors</button>
+
+                <!-- View All Guests Button -->
+                <button class="btn btn-success mx-2" type="submit" name="viewAllGuests">View All Guests</button>
+            </div>
+        </div>
+    </form>
+
     <div class="container">
         <h1>NAV VIA BUTTONS</h1>
         
