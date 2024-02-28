@@ -28,8 +28,30 @@
             </div>
         </form>
     </div>
+
+    <!-- Forms -->
+    
+
+    <form method="post" action="">
+        <div class="row">
+            <div class="col text-center">
+                <!-- View All Movies Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewAllMovies">View All Movies</button>
+
+                <!-- View Users Button -->
+                <button class="btn btn-secondary mx-2" type="submit" name="viewUsers">View Users</button>
+
+                <!-- View All Actors Button -->
+                <button class="btn btn-success mx-2" type="submit" name="viewAllActors">View All Actors</button>
+
+                <!-- View All Guests Button -->
+                <button class="btn btn-success mx-2" type="submit" name="viewAllGuests">View All Guests</button>
+            </div>
+        </div>
+    </form>
+
     <div class="container">
-        <h1>Guests</h1>
+        
         <?php
         // we want to check if the submit button has been clicked (in our case, it is named Query)
         if(isset($_POST['submitted']))
@@ -45,13 +67,19 @@
             $ageLimit = 0;
         }
 
-        // we will now create a table from PHP side 
-        echo "<table class='table table-md table-bordered'>";
-        echo "<thead class='thead-dark' style='text-align: center'>";
+        $viewMode = ''; // Default view is empty
 
-        // initialize table headers
-        // YOU WILL NEED TO CHANGE THIS DEPENDING ON TABLE YOU QUERY OR THE COLUMNS YOU RETURN
-         echo "<tr><th class='col-md-2'>Firstname</th><th class='col-md-2'>Lastname</th></tr></thead>";
+        // Detect which button was clicked
+        if (isset($_POST['viewAllMovies'])) {
+            $viewMode = 'movies';
+        } elseif (isset($_POST['viewUsers'])) {
+            $viewMode = 'users';
+        } elseif (isset($_POST['viewAllActors'])) {
+            $viewMode = 'actors';
+        } elseif (isset($_POST['viewAllGuests'])) {
+            $viewMode = 'guests';
+        }
+
 
         // generic table builder. It will automatically build table data rows irrespective of result
         class TableRows extends RecursiveIteratorIterator {
@@ -72,40 +100,24 @@
             }
         }
 
-        // SQL CONNECTIONS
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "COSI127b";
+        switch ($viewMode) {
+            case 'movies':
+                include './fetchData/fetchMovies.php'; // fetch movies
+                include './views/moviesView.php'; // display movies
+                
+                break;
+            case 'users':
+                // Code to display user information
+                break;
+            case 'actors':
+                // Code to display actor information
+                break;
+            case 'guests':
+                include './fetchData/fetchGuests.php'; // fetch movies
+                include './views/guestsView.php'; // display movies
 
-        try {
-            // We will use PDO to connect to MySQL DB. This part need not be 
-            // replicated if we are having multiple queries. 
-            // initialize connection and set attributes for errors/exceptions
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // prepare statement for executions. This part needs to change for every query
-            $stmt = $conn->prepare("SELECT first_name, last_name FROM guests where age>=$ageLimit");
-
-            // execute statement
-            $stmt->execute();
-
-            // set the resulting array to associative. 
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-            // for each row that we fetched, use the iterator to build a table row on front-end
-            foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-                echo $v;
-            }
+                break;
         }
-        catch(PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
-        echo "</table>";
-        // destroy our connection
-        $conn = null;
-    
     ?>
 
     </div>
