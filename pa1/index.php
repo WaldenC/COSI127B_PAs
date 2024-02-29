@@ -30,8 +30,6 @@
     </div>
 
     <!-- Forms -->
-    
-
     <form method="post" action="">
         <div class="row">
             <div class="col text-center">
