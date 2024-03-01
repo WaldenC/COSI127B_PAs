@@ -105,6 +105,7 @@
         case 'users':
             include 'fetchData/fetchUser.php';
             include 'views/userView.php';
+            break;
         case 'actors':
             include 'fetchData/fetchActors.php';
             include 'views/actorsView.php';

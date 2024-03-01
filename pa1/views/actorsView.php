@@ -1,6 +1,6 @@
 <?php
 
-echo "<h1>Guests</h1>";
+echo "<h1>Actors</h1>";
 echo "<table class='table table-md table-bordered'>";
 echo "<thead class='thead-dark' style='text-align: center'>";
 
