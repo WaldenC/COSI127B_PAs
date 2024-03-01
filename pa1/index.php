@@ -44,9 +44,21 @@
 
                 <!-- View All Guests Button -->
                 <button class="btn btn-success mx-2" type="submit" name="viewAllGuests">View All Guests</button>
+
+                 <!-- View All Likes  Button -->
+                 <button class="btn btn-success mx-2" type="submit" name="viewAllLikes">View All Likes</button>
             </div>
         </div>
     </form>
+
+    <?php
+        session_start();
+
+        if (isset($_SESSION['message'])) {
+            echo "<script>alert('" . $_SESSION['message'] . "');</script>";
+            unset($_SESSION['message']);
+        }
+    ?>
 
     <div class="container">
     <?php
@@ -80,6 +92,8 @@
         $viewMode = 'actors';
     } elseif (isset($_POST['viewAllGuests'])) {
         $viewMode = 'guests';
+    } elseif(isset($_POST['viewAllLikes'])) {
+        $viewMode = 'likes';
     }
 
     switch ($viewMode) {
@@ -99,8 +113,14 @@
             include 'fetchData/fetchGuests.php';
             include 'views/guestsView.php';
             break;
+        case 'likes':
+            include 'fetchData/fetchLikes.php';
+            include 'views/likesView.php';
+            break;
         default:
             // Default content, perhaps a welcome message or introduction
+            include 'fetchData/fetchMovies.php';
+            include 'views/moviesView.php';
             break;
     }
     ?>
