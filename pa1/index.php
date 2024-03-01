@@ -118,6 +118,8 @@
             break;
         default:
             // Default content, perhaps a welcome message or introduction
+            include 'fetchData/fetchMovies.php';
+            include 'views/moviesView.php';
             break;
     }
     ?>
