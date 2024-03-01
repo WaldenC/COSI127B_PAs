@@ -92,7 +92,8 @@
             include 'fetchData/fetchUser.php';
             include 'views/userView.php';
         case 'actors':
-            // Code to display actor information
+            include 'fetchData/fetchActors.php';
+            include 'views/actorsView.php';
             break;
         case 'guests':
             include 'fetchData/fetchGuests.php';
