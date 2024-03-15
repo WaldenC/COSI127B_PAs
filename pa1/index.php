@@ -33,8 +33,8 @@
     <form method="post" action="">
         <div class="row">
             <div class="col text-center">
-                <!-- View All Movies Button -->
-                <button class="btn btn-primary mx-2" type="submit" name="viewAllMovies">View All Movies</button>
+                <!-- View All Motion Pictures Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
 
                 <!-- View Users Button -->
                 <button class="btn btn-secondary mx-2" type="submit" name="viewUsers">View Users</button>
@@ -84,8 +84,8 @@
     $viewMode = ''; // Default view is empty
 
     // Detect which button was clicked
-    if (isset($_POST['viewAllMovies'])) {
-        $viewMode = 'movies';
+    if (isset($_POST['viewAllMotionPictures'])) {
+        $viewMode = 'motionPictures';
     } elseif (isset($_POST['viewUsers'])) {
         $viewMode = 'users';
     } elseif (isset($_POST['viewAllActors'])) {
@@ -97,10 +97,10 @@
     }
 
     switch ($viewMode) {
-        case 'movies':
+        case 'motionPictures':
             // Code to display movie information
-            include 'fetchData/fetchMovies.php';
-            include 'views/moviesView.php';
+            include 'fetchData/fetchMotionPictures.php';
+            include 'views/motionPicturesView.php';
             break;
         case 'users':
             include 'fetchData/fetchUser.php';

@@ -1,5 +1,5 @@
 <?php
-echo "<h1>Movies</h1>";
+echo "<h1>Motion Pictures</h1>";
 echo "<table class='table table-md table-bordered'>";
 echo "<thead class='thead-dark' style='text-align: center'>";
 
@@ -11,19 +11,19 @@ echo "<tr>
 <th class='col-md-1'>production</th>
 <th class='col-md-1'>budget</th>
 <th class='col-md-1'>rating</th>
-<th class='col-md-1'>like the movie</th>
+<th class='col-md-1'>like the motion picture</th>
 </tr></thead>";
 
-$movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach ($movies as $movie) {
+$motionPictures = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach ($motionPictures as $motionPicture) {
     echo "<tr>";
-    foreach ($movie as $key => $value) {
+    foreach ($motionPicture as $key => $value) {
         echo "<td>" . htmlspecialchars($value) . "</td>";
         if ($key == 'rating') {
-            //add a form to like the movie
-            echo "<td><form action='like_movie.php' method='post'>";
+            //add a form to like the motion picture
+            echo "<td><form action='like_motionPicture.php' method='post'>";
             echo "<input type='text' name='user_email' placeholder='Enter your email'>";
-            echo "<input type='hidden' name='movie_id' value='" . htmlspecialchars($movie['id']) . "'>";
+            echo "<input type='hidden' name='motionPicture_id' value='" . htmlspecialchars($motionPicture['id']) . "'>";
             echo "<button type='submit' name='like' value='like'>Like</button>";
             echo "</form></td>";
         }
