@@ -90,6 +90,26 @@
         </form>
     </div>
 
+    <!-- Search American producers by box office collection and budget -->
+    <div class="container">
+        <form id="producer_search" method="post" action="">
+            <div class="input-group">
+                <!-- Box Office Collection Input -->
+                <input type="number" class="form-control" placeholder="Enter minimum Box Office Collection (X)" name="minCollection">
+
+                <!-- Budget Input -->
+                <input type="number" class="form-control" placeholder="Enter maximum Budget (Y)" name="maxBudget">
+                
+                <!-- Submit Button -->
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewProducers_byCollectionAndBudget" id="button-addon2">Search Producers (Query 8)</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
     <!-- View tables buttons, show all the data in the database without any extra conditions -->
     <form method="post" action="">
         <div class="row">
@@ -180,6 +200,8 @@
         $viewMode = 'people_moreThan_k_awards';
     } elseif(isset($_POST['viewQuery7'])) {
         $viewMode = 'query7';
+    } elseif(isset($_POST['viewProducers_byCollectionAndBudget'])) {
+        $viewMode = 'producers_byCollectionAndBudget';
     }
 
     switch ($viewMode) {
@@ -238,6 +260,10 @@
         case 'query7':
             include 'fetchData/fetchData_Query7.php';
             include 'views/query7View.php';
+            break;
+        case 'producers_byCollectionAndBudget':
+            include 'fetchData/fetchData_Query8.php';
+            include 'views/query8View.php';
             break;
 
 
