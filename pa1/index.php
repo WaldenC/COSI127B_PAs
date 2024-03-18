@@ -36,7 +36,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter Movie Name" name="motionPictureName">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byName" id="button-addon2">Search Movies by Name</button>
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byName" id="button-addon2">Search Movies by Name (Query 2)</button>
                 </div>
             </div>
         </form>
@@ -48,7 +48,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter User Email" name="user_email">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byEmail" id="button-addon2">Search Motion Pictures by Email</button>
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byEmail" id="button-addon2">Search Motion Pictures by Email (Query 3)</button>
                 </div>
             </div>
         </form>
@@ -60,7 +60,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter Shooting Location Country" name="country">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byCountry" id="button-addon2">Search Motion Pictures by Shooting Location Country</button>
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byCountry" id="button-addon2">Search Motion Pictures by Shooting Location Country (Query 4)</button>
                 </div>
             </div>
         </form>
@@ -72,7 +72,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter Zipcode" name="zipcode">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" name="viewDirectorAndSeries_byZipcode" id="button-addon2">Search Director And TV Series by Zipcode</button>
+                    <button class="btn btn-outline-secondary" type="submit" name="viewDirectorAndSeries_byZipcode" id="button-addon2">Search Director And TV Series by Zipcode (Query 5)</button>
                 </div>
             </div>
         </form>
@@ -84,7 +84,7 @@
             <div class="input-group mb-3">
                 <input type="number" class="form-control" placeholder="Enter Count(K)" name="awardCount">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" name="viewPeople_moreThan_k_awards" id="button-addon2">Search People by the number of Awards Received in Signle Motion Picture in One Year </button>
+                    <button class="btn btn-outline-secondary" type="submit" name="viewPeople_moreThan_k_awards" id="button-addon2">Search People by the number of Awards Received in Signle Motion Picture in Same Year (Query 6) </button>
                 </div>
             </div>
         </form>
@@ -127,13 +127,13 @@
         <div class="row">
             <div class="col text-center">
                 <!-- View All Motion Pictures Button -->
-                <button class="btn btn-primary mx-2" type="submit" name="viewAllTables">View All Tables(Query 1)</button>
+                <button class="btn btn-primary mx-2" type="submit" name="viewAllTables">View All Tables (Query 1)</button>
 
                 <!-- View youngest and oldest actors to win at least one award Button -->
-                <button class="btn btn-primary mx-2" type="submit" name="viewQuery7">View youngest and oldest actors to win at least one award(Query 7)</button>
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery7">View youngest and oldest actors to win at least one award (Query 7)</button>
 
                 <!-- View the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston Button -->
-                <button class="btn btn-primary mx-2" type="submit" name="viewQuery10">the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston(Query 10)</button>
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery10">the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston (Query 10)</button>
 
                 <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
