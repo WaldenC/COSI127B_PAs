@@ -78,6 +78,18 @@
         </form>
     </div>
 
+    <!-- search people by award count in single motion picture in one year -->
+    <div class="container">
+        <form id="people_moreThan_k_awards" method="post" action="">
+            <div class="input-group mb-3">
+                <input type="number" class="form-control" placeholder="Enter Count(K)" name="awardCount">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewPeople_moreThan_k_awards" id="button-addon2">Search People by the number of Awards Received in Signle Motion Picture in One Year </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <!-- View tables buttons, show all the data in the database without any extra conditions -->
     <form method="post" action="">
         <div class="row">
@@ -161,6 +173,8 @@
         $viewMode = 'tables';
     } elseif(isset($_POST['viewDirectorAndSeries_byZipcode'])) {
         $viewMode = 'directorAndSeries_byZipcode';
+    } elseif(isset($_POST['viewPeople_moreThan_k_awards'])) {
+        $viewMode = 'people_moreThan_k_awards';
     }
 
     switch ($viewMode) {
@@ -212,6 +226,12 @@
             include 'fetchData/fetchDirectorAndSeries.php';
             include 'views/directorAndSeriesView.php';
             break;
+        case 'people_moreThan_k_awards':
+            include 'fetchData/fetchPeopleWithMoreThan_k_awards.php';
+            include 'views/peopleView_moreThan_k_awards.php';
+            break;
+
+
         default:
             // Default content, perhaps a welcome message or introduction
             include 'fetchData/fetchMovies.php';
