@@ -108,6 +108,18 @@
         </form>
     </div>
 
+    <!-- List the people who have played multiple roles in a motion picture where the rating is more than “X”  -->
+    <div class="container">
+        <form id="query9Form" method="post" action="">
+            <div class="input-group mb-3">
+                <input type="number" step="0.1" class="form-control" placeholder="Enter Rating(X)" name="rating">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewQuery9" id="button-addon2">List the people who have played multiple roles in a motion picture where the rating is more than “X” (Query 9) </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 
 
     <!-- View tables buttons, show all the data in the database without any extra conditions -->
@@ -202,6 +214,8 @@
         $viewMode = 'query7';
     } elseif(isset($_POST['viewProducers_byCollectionAndBudget'])) {
         $viewMode = 'producers_byCollectionAndBudget';
+    } elseif(isset($_POST['viewQuery9'])) {
+        $viewMode = 'query9';
     }
 
     switch ($viewMode) {
@@ -264,6 +278,10 @@
         case 'producers_byCollectionAndBudget':
             include 'fetchData/fetchData_Query8.php';
             include 'views/query8View.php';
+            break;
+        case 'query9':
+            include 'fetchData/fetchData_Query9.php';
+            include 'views/query9View.php';
             break;
 
 
