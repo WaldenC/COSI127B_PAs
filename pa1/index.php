@@ -132,6 +132,9 @@
                 <!-- View youngest and oldest actors to win at least one award Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewQuery7">View youngest and oldest actors to win at least one award(Query 7)</button>
 
+                <!-- View the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery10">the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston(Query 10)</button>
+
                 <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
 
@@ -216,6 +219,8 @@
         $viewMode = 'producers_byCollectionAndBudget';
     } elseif(isset($_POST['viewQuery9'])) {
         $viewMode = 'query9';
+    } elseif(isset($_POST['viewQuery10'])) {
+        $viewMode = 'query10';
     }
 
     switch ($viewMode) {
@@ -282,6 +287,10 @@
         case 'query9':
             include 'fetchData/fetchData_Query9.php';
             include 'views/query9View.php';
+            break;
+        case 'query10':
+            include 'fetchData/fetchData_Query10.php';
+            include 'views/query10View.php';
             break;
 
 
