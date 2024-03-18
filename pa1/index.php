@@ -95,7 +95,10 @@
         <div class="row">
             <div class="col text-center">
                 <!-- View All Motion Pictures Button -->
-                <button class="btn btn-primary mx-2" type="submit" name="viewAllTables">View All Tables</button>
+                <button class="btn btn-primary mx-2" type="submit" name="viewAllTables">View All Tables(Query 1)</button>
+
+                <!-- View youngest and oldest actors to win at least one award Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery7">View youngest and oldest actors to win at least one award(Query 7)</button>
 
                 <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
@@ -175,6 +178,8 @@
         $viewMode = 'directorAndSeries_byZipcode';
     } elseif(isset($_POST['viewPeople_moreThan_k_awards'])) {
         $viewMode = 'people_moreThan_k_awards';
+    } elseif(isset($_POST['viewQuery7'])) {
+        $viewMode = 'query7';
     }
 
     switch ($viewMode) {
@@ -229,6 +234,10 @@
         case 'people_moreThan_k_awards':
             include 'fetchData/fetchPeopleWithMoreThan_k_awards.php';
             include 'views/peopleView_moreThan_k_awards.php';
+            break;
+        case 'query7':
+            include 'fetchData/fetchData_Query7.php';
+            include 'views/query7View.php';
             break;
 
 
