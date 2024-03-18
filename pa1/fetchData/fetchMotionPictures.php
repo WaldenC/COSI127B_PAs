@@ -7,7 +7,10 @@ if(isset($_POST['viewMotionPictures_byName']))
     // set age limit to whatever input we get
     // ideally, we should do more validation to check for numbers, etc. 
     $motionPicture = $_POST["motionPictureName"]; 
-    $query = "SELECT name, production, budget, rating FROM motion_picture WHERE name = '$motionPicture'";
+    $query = "SELECT mp.name, mp.production, mp.budget, mp.rating
+                FROM motion_picture mp
+                JOIN movie m ON mp.id = m.mpid
+                WHERE mp.name = '$motionPicture'";
     // prepare statement for executions. This part needs to change for every query
     $stmt = $conn->prepare($query);
 } //only select the movie liked by user only (!!! not all the motion picture)

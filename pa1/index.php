@@ -34,9 +34,9 @@
     <div class="container">
         <form id="motionPictures_byNameForm" method="post" action="">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Enter Motion Picture Name" name="motionPictureName">
+                <input type="text" class="form-control" placeholder="Enter Movie Name" name="motionPictureName">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byName" id="button-addon2">Search Motion Pictures by Name</button>
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byName" id="button-addon2">Search Movies by Name</button>
                 </div>
             </div>
         </form>
