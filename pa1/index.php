@@ -72,6 +72,9 @@
 
                 <!-- View All Likes  Button -->
                 <button class="btn btn-success mx-2" type="submit" name="viewAllLikes">View All Likes</button>
+
+                <!-- View All Awards  Button -->
+                <button class="btn btn-success mx-2" type="submit" name="viewAllAwards">View All Awards</button>
             </div>
         </div>
     </form>
@@ -123,6 +126,8 @@
         $viewMode = 'guests';
     } elseif(isset($_POST['viewAllLikes'])) {
         $viewMode = 'likes';
+    } elseif(isset($_POST['viewAllAwards'])) {
+        $viewMode = 'awards';
     }
 
     switch ($viewMode) {
@@ -156,6 +161,10 @@
         case 'likes':
             include 'fetchData/fetchLikes.php';
             include 'views/likesView.php';
+            break;
+        case 'awards':
+            include 'fetchData/fetchAwards.php';
+            include 'views/awardsView.php';
             break;
         default:
             // Default content, perhaps a welcome message or introduction
