@@ -18,18 +18,43 @@
         <h1 style="text-align:center">COSI 127b</h1><br>
         <h3 style="text-align:center">Connecting Front-End to MySQL DB</h3><br>
     </div>
+    <!-- find guests older than input age -->
     <div class="container">
         <form id="ageLimitForm" method="post" action="index.php">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter minimum age" name="inputAge" id="inputAge">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" name="submitted" id="button-addon2">Query</button>
+                    <button class="btn btn-outline-secondary" type="submit" name="viewGuests_byAge" id="button-addon2">Query</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <!-- Forms -->
+    <!-- search movies by name -->
+    <div class="container">
+        <form id="motionPictures_byNameForm" method="post" action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter Motion Picture Name" name="motionPictureName">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byName" id="button-addon2">Search Motion Pictures by Name</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- search liked movies by email -->
+    <div class="container">
+        <form id="motionPictures_byEmail" method="post" action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter User Email" name="user_email">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byEmail" id="button-addon2">Search Motion Pictures by Email</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- View tables buttons, show all the data in the database without any extra conditions -->
     <form method="post" action="">
         <div class="row">
             <div class="col text-center">
@@ -45,8 +70,8 @@
                 <!-- View All Guests Button -->
                 <button class="btn btn-success mx-2" type="submit" name="viewAllGuests">View All Guests</button>
 
-                 <!-- View All Likes  Button -->
-                 <button class="btn btn-success mx-2" type="submit" name="viewAllLikes">View All Likes</button>
+                <!-- View All Likes  Button -->
+                <button class="btn btn-success mx-2" type="submit" name="viewAllLikes">View All Likes</button>
             </div>
         </div>
     </form>
@@ -86,11 +111,15 @@
     // Detect which button was clicked
     if (isset($_POST['viewAllMotionPictures'])) {
         $viewMode = 'motionPictures';
+    } elseif (isset($_POST['viewMotionPictures_byName'])) {
+        $viewMode = 'motionPictures_byName';
+    } elseif (isset($_POST['viewMotionPictures_byEmail'])) {
+        $viewMode = 'motionPictures_byEmail';
     } elseif (isset($_POST['viewUsers'])) {
         $viewMode = 'users';
     } elseif (isset($_POST['viewAllActors'])) {
         $viewMode = 'actors';
-    } elseif (isset($_POST['viewAllGuests'])) {
+    } elseif (isset($_POST['viewAllGuests']) || isset($_POST['viewGuests_byAge'])) {
         $viewMode = 'guests';
     } elseif(isset($_POST['viewAllLikes'])) {
         $viewMode = 'likes';
@@ -101,6 +130,16 @@
             // Code to display movie information
             include 'fetchData/fetchMotionPictures.php';
             include 'views/motionPicturesView.php';
+            break;
+        case 'motionPictures_byName':
+            // Code to display movie information searched by name
+            include 'fetchData/fetchMotionPictures.php';
+            include 'views/motionPicturesView_byName.php';
+            break;
+        case 'motionPictures_byEmail':
+            // Code to display movie information searched by email
+            include 'fetchData/fetchMotionPictures.php';
+            include 'views/motionPicturesView_byName.php';
             break;
         case 'users':
             include 'fetchData/fetchUser.php';

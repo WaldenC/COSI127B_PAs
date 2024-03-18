@@ -2,7 +2,7 @@
 require 'connectDB.php'; // Include database connection
 
 // we want to check if the submit button has been clicked (in our case, it is named Query)
-if(isset($_POST['submitted']))
+if(isset($_POST['viewGuests_byAge']))
 {
     // set age limit to whatever input we get
     // ideally, we should do more validation to check for numbers, etc. 
