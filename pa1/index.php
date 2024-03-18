@@ -66,6 +66,18 @@
         </form>
     </div>
 
+    <!-- search motion pictures by shooting location country -->
+    <div class="container">
+        <form id="directorAndSeries_byZipcode" method="post" action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter Zipcode" name="zipcode">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewDirectorAndSeries_byZipcode" id="button-addon2">Search Director And TV Series by Zipcode</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <!-- View tables buttons, show all the data in the database without any extra conditions -->
     <form method="post" action="">
         <div class="row">
@@ -147,6 +159,8 @@
         $viewMode = 'awards';
     } elseif(isset($_POST['viewAllTables'])) {
         $viewMode = 'tables';
+    } elseif(isset($_POST['viewDirectorAndSeries_byZipcode'])) {
+        $viewMode = 'directorAndSeries_byZipcode';
     }
 
     switch ($viewMode) {
@@ -194,8 +208,10 @@
             include 'fetchData/fetchTables.php';
             include 'views/tableView.php';
             break;
-
-        
+        case 'directorAndSeries_byZipcode':
+            include 'fetchData/fetchDirectorAndSeries.php';
+            include 'views/directorAndSeriesView.php';
+            break;
         default:
             // Default content, perhaps a welcome message or introduction
             include 'fetchData/fetchMovies.php';
