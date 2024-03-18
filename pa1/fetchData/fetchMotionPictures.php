@@ -10,11 +10,13 @@ if(isset($_POST['viewMotionPictures_byName']))
     $query = "SELECT name, production, budget, rating FROM motion_picture WHERE name = '$motionPicture'";
     // prepare statement for executions. This part needs to change for every query
     $stmt = $conn->prepare($query);
-} else if(isset($_POST['viewMotionPictures_byEmail'])) {
+} //only select the movie liked by user only (!!! not all the motion picture)
+else if(isset($_POST['viewMotionPictures_byEmail'])) {
     $user_email = $_POST["user_email"];
-    $query = "SELECT m.name, m.rating, m.production, m.budget
-                FROM motion_picture m
-                JOIN likes l ON m.id = l.mpid
+    $query = "SELECT mp.name, mp.rating, mp.production, mp.budget
+                FROM motion_picture mp
+                JOIN movie m ON mp.id = m.mpid
+                JOIN likes l ON mp.id = l.mpid
                 JOIN user u ON l.uemail = u.email
                 WHERE u.email = '$user_email'";
     $stmt = $conn->prepare($query);
