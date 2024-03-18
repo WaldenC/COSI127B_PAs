@@ -54,6 +54,18 @@
         </form>
     </div>
 
+    <!-- search motion pictures by shooting location country -->
+    <div class="container">
+        <form id="motionPictures_byCountry" method="post" action="">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter Shooting Location Country" name="country">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMotionPictures_byCountry" id="button-addon2">Search Motion Pictures by Shooting Location Country</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <!-- View tables buttons, show all the data in the database without any extra conditions -->
     <form method="post" action="">
         <div class="row">
@@ -118,6 +130,8 @@
         $viewMode = 'motionPictures_byName';
     } elseif (isset($_POST['viewMotionPictures_byEmail'])) {
         $viewMode = 'motionPictures_byEmail';
+    } elseif (isset($_POST['viewMotionPictures_byCountry'])) {
+        $viewMode = 'motionPictures_byCountry';
     } elseif (isset($_POST['viewUsers'])) {
         $viewMode = 'users';
     } elseif (isset($_POST['viewAllActors'])) {
@@ -145,6 +159,11 @@
             // Code to display movie information searched by email
             include 'fetchData/fetchMotionPictures.php';
             include 'views/motionPicturesView_byName.php';
+            break;
+        case 'motionPictures_byCountry':
+            // Code to display movie information searched by email
+            include 'fetchData/fetchMotionPictures.php';
+            include 'views/motionPicturesView_byCountry.php';
             break;
         case 'users':
             include 'fetchData/fetchUser.php';

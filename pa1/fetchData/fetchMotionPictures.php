@@ -20,7 +20,15 @@ else if(isset($_POST['viewMotionPictures_byEmail'])) {
                 JOIN user u ON l.uemail = u.email
                 WHERE u.email = '$user_email'";
     $stmt = $conn->prepare($query);
-} 
+} else if(isset($_POST['viewMotionPictures_byCountry'])) {
+    $country = $_POST["country"];
+    $query = "SELECT DISTINCT mp.name
+        FROM motion_picture mp
+        JOIN location l ON mp.id = l.mpid
+        WHERE l.country = '$country';
+    ";
+    $stmt = $conn->prepare($query);
+}
 else
 {
     // if the button was not clicked, we can simply set age limit to 0 
