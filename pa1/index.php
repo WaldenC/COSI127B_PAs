@@ -71,6 +71,9 @@
         <div class="row">
             <div class="col text-center">
                 <!-- View All Motion Pictures Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewAllTables">View All Tables</button>
+
+                <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
 
                 <!-- View Users Button -->
@@ -142,6 +145,8 @@
         $viewMode = 'likes';
     } elseif(isset($_POST['viewAllAwards'])) {
         $viewMode = 'awards';
+    } elseif(isset($_POST['viewAllTables'])) {
+        $viewMode = 'tables';
     }
 
     switch ($viewMode) {
@@ -185,6 +190,12 @@
             include 'fetchData/fetchAwards.php';
             include 'views/awardsView.php';
             break;
+        case 'tables':
+            include 'fetchData/fetchTables.php';
+            include 'views/tableView.php';
+            break;
+
+        
         default:
             // Default content, perhaps a welcome message or introduction
             include 'fetchData/fetchMovies.php';
