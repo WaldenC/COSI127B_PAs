@@ -163,6 +163,9 @@
                 <!-- View the motion pictures that have a higher rating than the average rating of all comedy (genre) motion pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewQuery14">View top 5 movies with the highest number of people playing a role in that movie (Query 14)</button>
 
+                <!-- View actors who share the same birthday Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery15">View actors who share the same birthday (Query 15)</button>
+
                 <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
 
@@ -257,6 +260,8 @@
         $viewMode = 'query13';
     } elseif(isset($_POST['viewQuery14'])) {
         $viewMode = 'query14';
+    } elseif(isset($_POST['viewQuery15'])) {
+        $viewMode = 'query15';
     }
 
     switch ($viewMode) {
@@ -343,6 +348,10 @@
         case 'query14':
             include 'fetchData/fetchData_query14.php';
             include 'views/query14View.php';
+            break;
+        case 'query15':
+            include 'fetchData/fetchData_query15.php';
+            include 'views/query15View.php';
             break;
 
 
