@@ -160,6 +160,9 @@
                 <!-- View the motion pictures that have a higher rating than the average rating of all comedy (genre) motion pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewQuery13">View motion pictures that have a higher rating than the average rating of all comedy (genre) motion pictures (Query 13)</button>
 
+                <!-- View the motion pictures that have a higher rating than the average rating of all comedy (genre) motion pictures Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery14">View top 5 movies with the highest number of people playing a role in that movie (Query 14)</button>
+
                 <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
 
@@ -246,12 +249,14 @@
         $viewMode = 'query9';
     } elseif(isset($_POST['viewQuery10'])) {
         $viewMode = 'query10';
-    } else if(isset($_POST['viewMovies_byLikesAndAge'])) {
+    } elseif(isset($_POST['viewMovies_byLikesAndAge'])) {
         $viewMode = 'movies_byLikesAndAge';
-    } else if(isset($_POST['viewQuery12'])) {
+    } elseif(isset($_POST['viewQuery12'])) {
         $viewMode = 'query12';
-    } else if(isset($_POST['viewQuery13'])) {
+    } elseif(isset($_POST['viewQuery13'])) {
         $viewMode = 'query13';
+    } elseif(isset($_POST['viewQuery14'])) {
+        $viewMode = 'query14';
     }
 
     switch ($viewMode) {
@@ -334,6 +339,10 @@
         case 'query13':
             include 'fetchData/fetchData_query13.php';
             include 'views/query13View.php';
+            break;
+        case 'query14':
+            include 'fetchData/fetchData_query14.php';
+            include 'views/query14View.php';
             break;
 
 
