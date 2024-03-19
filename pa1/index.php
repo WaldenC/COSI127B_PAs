@@ -153,6 +153,9 @@
 
                 <!-- View the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewQuery10">the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston (Query 10)</button>
+                
+                <!-- View the actors who have played a role in both “Marvel” and “Warner Bros” productions Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery12">the actors who have played a role in both “Marvel” and “Warner Bros” productions (Query 12)</button>
 
                 <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
@@ -240,8 +243,10 @@
         $viewMode = 'query9';
     } elseif(isset($_POST['viewQuery10'])) {
         $viewMode = 'query10';
-    } else if (isset($_POST['viewMovies_byLikesAndAge'])) {
+    } else if(isset($_POST['viewMovies_byLikesAndAge'])) {
         $viewMode = 'movies_byLikesAndAge';
+    } else if(isset($_POST['viewQuery12'])) {
+        $viewMode = 'query12';
     }
 
     switch ($viewMode) {
@@ -316,6 +321,10 @@
         case 'movies_byLikesAndAge':
             include 'fetchData/fetchData_query11.php';
             include 'views/query11View.php';
+            break;
+        case 'query12':
+            include 'fetchData/fetchData_query12.php';
+            include 'views/query12View.php';
             break;
 
 
