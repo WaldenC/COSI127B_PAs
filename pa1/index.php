@@ -152,10 +152,13 @@
                 <button class="btn btn-primary mx-2" type="submit" name="viewQuery7">View youngest and oldest actors to win at least one award (Query 7)</button>
 
                 <!-- View the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston Button -->
-                <button class="btn btn-primary mx-2" type="submit" name="viewQuery10">the top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston (Query 10)</button>
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery10">View top 2 rates thriller movies (genre is thriller) that were shot exclusively in Boston (Query 10)</button>
                 
                 <!-- View the actors who have played a role in both “Marvel” and “Warner Bros” productions Button -->
-                <button class="btn btn-primary mx-2" type="submit" name="viewQuery12">the actors who have played a role in both “Marvel” and “Warner Bros” productions (Query 12)</button>
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery12">View actors who have played a role in both “Marvel” and “Warner Bros” productions (Query 12)</button>
+
+                <!-- View the motion pictures that have a higher rating than the average rating of all comedy (genre) motion pictures Button -->
+                <button class="btn btn-primary mx-2" type="submit" name="viewQuery13">View motion pictures that have a higher rating than the average rating of all comedy (genre) motion pictures (Query 13)</button>
 
                 <!-- View All Motion Pictures Button -->
                 <button class="btn btn-primary mx-2" type="submit" name="viewAllMotionPictures">View All Motion Pictures</button>
@@ -247,6 +250,8 @@
         $viewMode = 'movies_byLikesAndAge';
     } else if(isset($_POST['viewQuery12'])) {
         $viewMode = 'query12';
+    } else if(isset($_POST['viewQuery13'])) {
+        $viewMode = 'query13';
     }
 
     switch ($viewMode) {
@@ -325,6 +330,10 @@
         case 'query12':
             include 'fetchData/fetchData_query12.php';
             include 'views/query12View.php';
+            break;
+        case 'query13':
+            include 'fetchData/fetchData_query13.php';
+            include 'views/query13View.php';
             break;
 
 
