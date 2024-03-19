@@ -120,6 +120,25 @@
         </form>
     </div>
 
+    <!-- Search movies by likes and age -->
+    <div class="container">
+        <form id="query10Form" method="post" action="">
+            <div class="input-group">
+                <!-- Likes Input -->
+                <input type="number" class="form-control" placeholder="Enter minimum number of Likes (X)" name="minLikes">
+
+                <!-- Age Input -->
+                <input type="number" class="form-control" placeholder="Enter maximum User Age (Y)" name="maxAge">
+                
+                <!-- Submit Button -->
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" name="viewMovies_byLikesAndAge" id="button-addon2">Search Movies (Query 11)</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+
+
 
 
     <!-- View tables buttons, show all the data in the database without any extra conditions -->
@@ -221,6 +240,8 @@
         $viewMode = 'query9';
     } elseif(isset($_POST['viewQuery10'])) {
         $viewMode = 'query10';
+    } else if (isset($_POST['viewMovies_byLikesAndAge'])) {
+        $viewMode = 'movies_byLikesAndAge';
     }
 
     switch ($viewMode) {
@@ -277,20 +298,24 @@
             include 'views/peopleView_moreThan_k_awards.php';
             break;
         case 'query7':
-            include 'fetchData/fetchData_Query7.php';
+            include 'fetchData/fetchData_query7.php';
             include 'views/query7View.php';
             break;
         case 'producers_byCollectionAndBudget':
-            include 'fetchData/fetchData_Query8.php';
+            include 'fetchData/fetchData_query8.php';
             include 'views/query8View.php';
             break;
         case 'query9':
-            include 'fetchData/fetchData_Query9.php';
+            include 'fetchData/fetchData_query9.php';
             include 'views/query9View.php';
             break;
         case 'query10':
-            include 'fetchData/fetchData_Query10.php';
+            include 'fetchData/fetchData_query10.php';
             include 'views/query10View.php';
+            break;
+        case 'movies_byLikesAndAge':
+            include 'fetchData/fetchData_query11.php';
+            include 'views/query11View.php';
             break;
 
 
