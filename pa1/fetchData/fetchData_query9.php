@@ -10,9 +10,9 @@ if(isset($_POST['viewQuery9']))
     $query = "SELECT p.name AS person_name, 
                   mp.name AS motion_picture_name, 
                   COUNT(r.role_name) AS role_count
-              FROM people p
-              JOIN role r ON p.id = r.pid
-              JOIN motion_picture mp ON r.mpid = mp.id
+              FROM People p
+              JOIN Role r ON p.id = r.pid
+              JOIN MotionPicture mp ON r.mpid = mp.id
               WHERE mp.rating > $rating
               GROUP BY p.id, mp.id
               HAVING COUNT(r.role_name) > 1;

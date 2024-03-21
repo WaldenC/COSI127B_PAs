@@ -10,10 +10,10 @@ if(isset($_POST['viewMovies_byLikesAndAge']))
     $maxAge = $_POST["maxAge"];
     $query = "SELECT mp.name AS movie_name, 
                   COUNT(*) AS likes_count
-              FROM motion_picture mp
-              JOIN movie m ON mp.id = m.mpid
-              JOIN likes l ON mp.id = l.mpid
-              JOIN user u ON l.uemail = u.email
+              FROM MotionPicture mp
+              JOIN Movie m ON mp.id = m.mpid
+              JOIN Likes l ON mp.id = l.mpid
+              JOIN User u ON l.uemail = u.email
               WHERE u.age < $maxAge
               GROUP BY mp.id
               HAVING COUNT(*) > $minLikes;";

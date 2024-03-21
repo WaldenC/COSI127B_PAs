@@ -2,10 +2,10 @@
 require 'connectDB.php'; // Include database connection
 try{
     $stmt = $conn->prepare("SELECT mp.name, mp.rating
-    FROM motion_picture mp
-    JOIN movie m ON mp.id = m.mpid
-    JOIN genre g ON mp.id = g.mpid
-    JOIN location l ON mp.id = l.mpid
+    FROM MotionPicture mp
+    JOIN Movie m ON mp.id = m.mpid
+    JOIN Genre g ON mp.id = g.mpid
+    JOIN Location l ON mp.id = l.mpid
     WHERE g.genre_name = 'thriller'
     AND l.city = 'Boston'
     AND NOT EXISTS (

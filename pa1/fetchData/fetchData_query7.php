@@ -14,9 +14,9 @@ try{
         SELECT MIN(age_at_award)
         FROM (
             SELECT a.award_year - YEAR(p.dob) AS age_at_award
-            FROM people p
-            JOIN award a ON p.id = a.pid
-            JOIN role r ON p.id = r.pid AND a.mpid = r.mpid
+            FROM People p
+            JOIN Award a ON p.id = a.pid
+            JOIN Role r ON p.id = r.pid AND a.mpid = r.mpid
             WHERE (r.role_name = 'Actor' OR r.role_name = 'Actress') AND a.award_name IS NOT NULL
         ) AS subquery_min
     )
@@ -24,9 +24,9 @@ try{
         SELECT MAX(age_at_award)
         FROM (
             SELECT a.award_year - YEAR(p.dob) AS age_at_award
-            FROM people p
-            JOIN award a ON p.id = a.pid
-            JOIN role r ON p.id = r.pid AND a.mpid = r.mpid
+            FROM People p
+            JOIN Award a ON p.id = a.pid
+            JOIN Role r ON p.id = r.pid AND a.mpid = r.mpid
             WHERE (r.role_name = 'Actor' OR r.role_name = 'Actress') AND a.award_name IS NOT NULL
         ) AS subquery_max
     );

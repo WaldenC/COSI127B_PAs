@@ -8,8 +8,8 @@ if(isset($_POST['viewMotionPictures_byName']))
     // ideally, we should do more validation to check for numbers, etc. 
     $motionPicture = $_POST["motionPictureName"]; 
     $query = "SELECT mp.name, mp.production, mp.budget, mp.rating
-                FROM motion_picture mp
-                JOIN movie m ON mp.id = m.mpid
+                FROM MotionPicture mp
+                JOIN Movie m ON mp.id = m.mpid
                 WHERE mp.name = '$motionPicture'";
     // prepare statement for executions. This part needs to change for every query
     $stmt = $conn->prepare($query);
@@ -17,17 +17,17 @@ if(isset($_POST['viewMotionPictures_byName']))
 else if(isset($_POST['viewMotionPictures_byEmail'])) {
     $user_email = $_POST["user_email"];
     $query = "SELECT mp.name, mp.rating, mp.production, mp.budget
-                FROM motion_picture mp
-                JOIN movie m ON mp.id = m.mpid
-                JOIN likes l ON mp.id = l.mpid
-                JOIN user u ON l.uemail = u.email
+                FROM MotionPicture mp
+                JOIN Movie m ON mp.id = m.mpid
+                JOIN Likes l ON mp.id = l.mpid
+                JOIN User u ON l.uemail = u.email
                 WHERE u.email = '$user_email'";
     $stmt = $conn->prepare($query);
 } else if(isset($_POST['viewMotionPictures_byCountry'])) {
     $country = $_POST["country"];
     $query = "SELECT DISTINCT mp.name
-        FROM motion_picture mp
-        JOIN location l ON mp.id = l.mpid
+        FROM MotionPicture mp
+        JOIN Location l ON mp.id = l.mpid
         WHERE l.country = '$country';
     ";
     $stmt = $conn->prepare($query);
@@ -36,7 +36,7 @@ else
 {
     // if the button was not clicked, we can simply set age limit to 0 
     // in this case, we will return everything
-    $query = "SELECT id, name, production, budget, rating FROM motion_picture";
+    $query = "SELECT id, name, production, budget, rating FROM MotionPicture";
     $stmt = $conn->prepare($query);
 }
 

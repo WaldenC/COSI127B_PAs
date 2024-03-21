@@ -12,10 +12,10 @@ if(isset($_POST['viewProducers_byCollectionAndBudget']))
                 mp.name AS movie_name, 
                 m.boxoffice_collection, 
                 mp.budget
-            FROM people p
-            JOIN role r ON p.id = r.pid
-            JOIN motion_picture mp ON r.mpid = mp.id
-            JOIN movie m ON mp.id = m.mpid
+            FROM People p
+            JOIN Role r ON p.id = r.pid
+            JOIN MotionPicture mp ON r.mpid = mp.id
+            JOIN Movie m ON mp.id = m.mpid
             WHERE r.role_name = 'Producer'
             AND p.nationality = 'USA'
             AND m.boxoffice_collection >=  $minCollection

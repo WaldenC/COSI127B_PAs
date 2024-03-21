@@ -11,9 +11,9 @@ if(isset($_POST['viewPeople_moreThan_k_awards']))
               mp.name AS motion_picture_name, 
               a.award_year, 
               COUNT(a.award_name) AS award_count
-              FROM people p
-              JOIN award a ON p.id = a.pid
-              JOIN motion_picture mp ON a.mpid = mp.id
+              FROM People p
+              JOIN Award a ON p.id = a.pid
+              JOIN MotionPicture mp ON a.mpid = mp.id
               GROUP BY p.id, mp.id, a.award_year
               HAVING COUNT(a.award_name) > $awardCount";
     // prepare statement for executions. This part needs to change for every query

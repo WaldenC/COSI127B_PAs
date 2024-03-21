@@ -2,7 +2,7 @@
 require 'connectDB.php'; // Include database connection
 try{
     // prepare statement for executions. This part needs to change for every query
-    $stmt = $conn->prepare("SELECT email, name, age FROM user");
+    $stmt = $conn->prepare("SELECT email, name, age FROM User");
 
     // execute statement
     $stmt->execute();

@@ -6,13 +6,13 @@ try{
             p2.name AS actor_2, 
             p1.dob AS common_birthday
         FROM 
-            people p1
+            People p1
         JOIN 
-            people p2 ON p1.dob = p2.dob AND p1.id != p2.id
+            People p2 ON p1.dob = p2.dob AND p1.id != p2.id
         JOIN 
-            role r1 ON p1.id = r1.pid
+            Role r1 ON p1.id = r1.pid
         JOIN 
-            role r2 ON p2.id = r2.pid
+            Role r2 ON p2.id = r2.pid
         WHERE 
             r1.role_name = 'Actor' AND r2.role_name = 'Actor'
         GROUP BY 

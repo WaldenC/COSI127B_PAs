@@ -2,11 +2,11 @@
 require 'connectDB.php'; // Include database connection
 try{
     $stmt = $conn->prepare("SELECT mp.name, mp.rating
-    FROM motion_picture mp
+    FROM MotionPicture mp
     WHERE mp.rating > (
         SELECT AVG(mp2.rating) 
-        FROM motion_picture mp2
-        JOIN genre g ON mp2.id = g.mpid
+        FROM MotionPicture mp2
+        JOIN Genre g ON mp2.id = g.mpid
         WHERE g.genre_name = 'Comedy'
     )
     ORDER BY mp.rating DESC;

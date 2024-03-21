@@ -2,7 +2,7 @@
 require 'connectDB.php'; // Include database connection
 try{
     // prepare statement for executions. This part needs to change for every query
-    $stmt = $conn->prepare("select p.* from people p left join role r on p.id=r.pid where r.role_name='actor'");
+    $stmt = $conn->prepare("select p.* from People p left join Role r on p.id=r.pid where r.role_name='actor'");
 
     // execute statement
     $stmt->execute();

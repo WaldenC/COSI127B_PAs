@@ -8,11 +8,11 @@ if(isset($_POST['viewDirectorAndSeries_byZipcode']))
     // ideally, we should do more validation to check for numbers, etc. 
     $zipcode = $_POST["zipcode"]; 
     $query = "SELECT DISTINCT p.name AS director_name, mp.name AS series_name
-            FROM people p
+            FROM People p
             JOIN Role r ON p.id = r.pid
-            JOIN series s ON r.mpid = s.mpid
-            JOIN motion_picture mp ON s.mpid = mp.id
-            JOIN location l ON mp.id = l.mpid
+            JOIN Series s ON r.mpid = s.mpid
+            JOIN MotionPicture mp ON s.mpid = mp.id
+            JOIN Location l ON mp.id = l.mpid
             WHERE r.role_name = 'Director'
             AND l.zip = $zipcode";
     // prepare statement for executions. This part needs to change for every query
